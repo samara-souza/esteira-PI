@@ -29,6 +29,8 @@ void setup() {
   pinMode(botLiga, INPUT_PULLUP);
   pinMode(botDesliga, INPUT_PULLUP);
 
+  pinMode(4, LOW);
+
   // Receptor
   vw_set_rx_pin(6);
   vw_setup(4000);

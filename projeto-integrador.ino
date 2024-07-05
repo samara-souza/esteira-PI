@@ -14,34 +14,36 @@ int paradaCor = 3;
 // HIGH- 4
 // LOW- 5
 
-int paradaVer = 6;
-// HIGH- 7
-// LOW- 8
+int paradaVer = 8;
+// HIGH- 9
+// LOW- 10
 
-int paradaAzul = 9;
-// HIGH- 10
-// LOW- 11
+int paradaAzul = 11;
+// HIGH- 12
+// LOW- 13
 
-int sensorCancela = 12;
-// HIGH- 13
-// LOW- 14
+int sensorCancela = 22;
+// HIGH- 24
+// LOW- 26
 
-int cancelaPneu = 15;
-// HIGH- 16
-// LOW- 17
+int cancelaPneu = 28;
+// HIGH- 30
+// LOW- 32
 
-int relePneu = 18;
-// HIGH- 19
-// LOW- 20
+int relePneu = 34;
+// HIGH- 36
+// LOW- 38
 
-#define pinS0 21
-#define pinS1 22
-#define pinS2 23
-#define pinS3 24
-#define pinOut 25
-// HIGH- 26
-// LOW- 27
+#define pinS0 31
+#define pinS1 33
+#define pinS2 35
+#define pinS3 37
+#define pinOut 39
+// HIGH- 41
+// LOW- 43
 
+
+//53- CS
 
 //Variáveis
 
@@ -95,6 +97,8 @@ void setup() {
   pinMode(pinS3, OUTPUT);
   pinMode(pinOut, INPUT);
 
+  pinMode(53, LOW);
+
   digitalWrite(cancelaPneu, HIGH);
   digitalWrite(relePneu, HIGH);
 
@@ -105,23 +109,24 @@ void setup() {
   digitalWrite(4, HIGH);
   digitalWrite(5, LOW);
 
-  digitalWrite(7, HIGH);
-  digitalWrite(8, LOW);
+  digitalWrite(9, HIGH);
+  digitalWrite(10, LOW);
 
-  digitalWrite(10, HIGH);
-  digitalWrite(11, LOW);
+  digitalWrite(12, HIGH);
+  digitalWrite(13, LOW);
   
-  digitalWrite(13, HIGH);
-  digitalWrite(14, LOW);
+  digitalWrite(24, HIGH);
+  digitalWrite(26, LOW);
 
-  digitalWrite(16, HIGH);
-  digitalWrite(17, LOW);
+  digitalWrite(30, HIGH);
+  digitalWrite(32, LOW);
 
-  digitalWrite(19, HIGH);
-  digitalWrite(20, LOW);
+  digitalWrite(36, HIGH);
+  digitalWrite(38, LOW);
 
-  digitalWrite(26, HIGH);
-  digitalWrite(27, LOW);
+  digitalWrite(41, HIGH);
+  digitalWrite(43, LOW);
+
 
   
   //lcd.begin(16, 2);
@@ -374,7 +379,7 @@ void abreCancela() {
 
 void dadosControle() {
 
-  pinMode(30, HIGH);
+  pinMode(53, HIGH);
   if (vw_get_message((uint8_t)dadoControle, dadoControleLen)) {
     saidaMotor = dadoControle[0];
 
@@ -396,7 +401,7 @@ void dadosControle() {
       desligar = 1;
     }
   }
-  pinMode(30, LOW);
+  pinMode(53, LOW);
 
   dadoLcd[0] = cor;
   dadoLcd[1] = qtAzul;
